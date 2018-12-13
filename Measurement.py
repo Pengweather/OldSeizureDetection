@@ -1,3 +1,4 @@
+# Created
 import numpy as np
 import scipy as sp
 import matplotlib.pyplot as plt
@@ -46,7 +47,7 @@ class Measurement:
 			count = 0
 			for line in fp:
 				self.seizureStart.append(int(line[:-1]))
-				count = count + 1		
+				count = count + 1
 				if (count == self.SeizureLength):
 					break
 
@@ -66,7 +67,7 @@ class Measurement:
 			count = 0
 			for line in fp:
 				self.seizureDuration.append(float(line[:-1]))
-				count = count + 1		
+				count = count + 1
 				if (count == self.SeizureLength):
 					break
 
@@ -74,7 +75,7 @@ class Measurement:
 			for temp in range(3):
 				next(fp)
 			for line in fp:
-				self.seizureData.append(float(line[:-1]))	
+				self.seizureData.append(float(line[:-1]))
 		fp.close()
 
 	def downsample(self, n = 2):
