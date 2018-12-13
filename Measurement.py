@@ -1,6 +1,6 @@
 # Created
 import numpy as np
-import scipy as sp
+import scipy.signal as sp
 import matplotlib.pyplot as plt
 
 class Measurement:
@@ -79,12 +79,10 @@ class Measurement:
 		fp.close()
 
 	def downsample(self, n = 2):
-		print(self.Fs / 2)
-		print(self.Fs % n)
 		if (self.Fs % n != 0):
 			raise FrequencyIntegerError("Resulting sampling frequency must be an integer")
 		# Decimate
-		self.seizureData = sp.signal.decimate(np.array(self.seizureData), n)
+		self.seizureData = sp.decimate(np.array(self.seizureData), n)
 		# Updating the length, sampling frequency, and sampling time
 		self.DataLength = self.seizureData.size
 		self.Fs = self.Fs/n
@@ -92,33 +90,7 @@ class Measurement:
 		# Updating the seizureStart and seizureEnd
 		self.seizureStart = np.floor(np.array(self.seizureStart)/n)
 		self.seizureEnd = np.ceil(np.array(self.seizureEnd)/n)
-"""
-print(seizureData)
-print(StudyName)
-print(ChannelNo)
-print(FilterOrder)
-print(FilterCutoff_1)
-print(FilterCutoff_2)
-print(Ts)
-print(Fs)
-print(DataLength)
-print(SeizureLength)
-print(SeizureDuration)
-
-
-labels = np.zeros(DataLength)
-for i in range(SeizureLength):
-	labels[seizureStart[i]:seizureEnd[i]] = 10000
-
-seizureData = np.array(seizureData)
-
-plt.figure()
-plt.plot(seizureData[3500000:3850000:10])
-plt.plot((seizureData[3500000:3850000:10])**2)
-plt.plot(labels[3500000:3850000:10])
-plt.show()
-plt.savefig('Study_005_channel1_Seizure_Data.png')
-"""
+		print(len(self.seizureData))
 
 #data = np.array(lines,np.float32)
 #print("data length: ", len(data))
