@@ -88,9 +88,8 @@ class Measurement:
 		self.Fs = self.Fs/n
 		self.Ts = 1/self.Fs
 		# Updating the seizureStart and seizureEnd
-		self.seizureStart = np.floor(np.array(self.seizureStart)/n)
-		self.seizureEnd = np.ceil(np.array(self.seizureEnd)/n)
-		print(len(self.seizureData))
+		self.seizureStart = np.floor(np.array(self.seizureStart)/n).astype(int)
+		self.seizureEnd = np.ceil(np.array(self.seizureEnd)/n).astype(int)
 
 #data = np.array(lines,np.float32)
 #print("data length: ", len(data))
