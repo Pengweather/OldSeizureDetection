@@ -18,7 +18,7 @@ sys.settrace
 #note:
 #   The results of |x[i] - x[i-1]| is zero padded in the front with window - 1 zeros
 ####################################################################################
-def line_length(data, stepSize = 0.2, window = 1):
+def calculateFeatureValue(data, stepSize = 0.2, window = 1):
     assert(len(data) > window)
     diff = np.zeros(window-1)
     diff = np.append(diff,np.array(abs(data[1:len(data)] - data[0:len(data)-1])))

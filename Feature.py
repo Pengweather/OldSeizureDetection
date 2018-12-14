@@ -25,7 +25,6 @@ class StartEndLengthError(RuntimeError):
 
 class Feature:
 	def __init__ (self, MeasurementObject, StepSizeSeconds = DEFAULT_STEPSIZE_SECONDS, WindowLengthSeconds = DEFAULT_WINDOWLENGTH_SECONDS, BaselineAverageTimeSeconds = DEFAULT_BASELINE_AVERAGETIME_SECONDS, AverageWindowShiftSeconds = DEFAULT_AVERAGE_WINDOWSHIFT_SECONDS, BaselineRefreshRateSeconds = DEFAULT_BASELINE_REFRESHRATE_SECONDS, SeizureHoldTimeSeconds = DEFAULT_SEIZURE_HOLDTIME_SECONDS, ThresholdBaselineFactor = DEFAULT_THRESHOLD_BASELINE_FACTOR, CostSensitivity = DEFAULT_COST_SENSITIVITY, CostFalseAlarmRate = DEFAULT_COST_FALSEALARM_RATE):
-		print(type(MeasurementObject))
 		self.Measurement = MeasurementObject
 		self.StepSize = np.floor(self.Measurement.Fs * StepSizeSeconds)
 		self.WindowLength = np.floor(self.Measurement.Fs * WindowLengthSeconds)

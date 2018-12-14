@@ -19,7 +19,9 @@ def calculateFeatureValue(Feature):
 	value = movAverage[range(0, movAverage.size - 1, Feature.StepSize.astype(int))]
 	return value
 
+"""
 MeasObj = mm.Measurement('Study_005_channel1.txt')
 MeasObj.downsample(2)
 FeatObj = fe.Feature(MeasObj)
 calculateFeatureValue(FeatObj)
+"""

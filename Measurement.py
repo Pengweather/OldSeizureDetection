@@ -1,6 +1,6 @@
 # Created
 import numpy as np
-import scipy.signal as sp
+import scipy.signal as signal
 import matplotlib.pyplot as plt
 
 class Measurement:
@@ -82,7 +82,7 @@ class Measurement:
 		if (self.Fs % n != 0):
 			raise FrequencyIntegerError("Resulting sampling frequency must be an integer")
 		# Decimate
-		self.seizureData = sp.decimate(np.array(self.seizureData), n)
+		self.seizureData = signal.decimate(np.array(self.seizureData), n)
 		# Updating the length, sampling frequency, and sampling time
 		self.DataLength = self.seizureData.size
 		self.Fs = self.Fs/n
