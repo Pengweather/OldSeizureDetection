@@ -14,11 +14,11 @@ from sklearn import svm
 MeasObjCh1 = mm.Measurement('Study_005_channel1.txt')
 MeasObjCh1.downsample(2)
 
-MeasObjCh2 = mm.Measurement('Study_005_channel2.txt')
-MeasObjCh2.downsample(2)
+#MeasObjCh2 = mm.Measurement('Study_005_channel2.txt')
+#MeasObjCh2.downsample(2)
 
-MeasObjCh3 = mm.Measurement('Study_005_channel3.txt')
-MeasObjCh3.downsample(2)
+#MeasObjCh3 = mm.Measurement('Study_005_channel3.txt')
+#MeasObjCh3.downsample(2)
 
 # Calculating all the relevant features
 FeatObj1 = fe.Feature(MeasObj1)
